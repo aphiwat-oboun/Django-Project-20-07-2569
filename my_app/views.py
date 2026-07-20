@@ -1,17 +1,26 @@
 # pyrefly: ignore [missing-import]
 from django.shortcuts import render
-
+import datetime
 
 def home(request):
-    return render(request, "index.html")
+    context = {
+        "title": "My Home Page",
+    }
+
+    context["date"] = datetime.datetime.today()
+    return render(request, "index.html", context)
 
 
 def about(request):
-    return render(request, "about.html")
+    context = {
+        "title": "About",
+    }
+    return render(request, "about.html", context)
 
 
 def contact(request):
-    return render(request, "contact.html")
-
-
-# Create your views here.
+    context = {
+        "title": "Contact",
+    }
+    return render(request, "contact.html", context)
+    
